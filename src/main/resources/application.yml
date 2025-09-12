@@ -1,0 +1,42 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+spring:
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create-drop
+  jta:
+    atomikos:
+      datasource:
+        unique-resource-name: APP
+        local-transaction-mode: true
+      properties:
+        transaction-manager-unique-name: ibmmq
+  sql:
+    init:
+      continue-on-error: true
+      mode: always
+
+atomikos:
+  properties:
+    transaction-manager-unique-name: logcloud
+
+logging:
+  file:
+    name: ibmmq.log
+    logback:
+    rollingpolicy:
+      clean-history-on-start: true
+    pattern:
+      file: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  level:
+    "[com.atomikos]": DEBUG
+
+ibm:
+  mq:
+    queueManager: QM1
+    channel: DEV.APP.SVRCONN
+    connName: localhost(1414)
+    user: app
+    password: apppass123

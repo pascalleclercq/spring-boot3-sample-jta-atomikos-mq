@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  mq:
+    image: icr.io/ibm-messaging/mq:9.4.3.1-r1
+    container_name: mq94
+    ports:
+      - "1414:1414"     # MQ channel
+      - "9443:9443"     # Web console
+    secrets:
+      - mqAdminPassword
+      - mqAppPassword
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+      - MQ_ENABLE_EMBEDDED_WEB_SERVER=true
+    volumes:
+      - mqdata:/mnt/mqm
+
+secrets:
+  mqAdminPassword:
+    file: ./secrets/mqAdminPassword.txt
+  mqAppPassword:
+    file: ./secrets/mqAppPassword.txt
+
+volumes:
+  mqdata:
+
