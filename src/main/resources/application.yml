@@ -13,6 +13,8 @@ spring:
         local-transaction-mode: true
       properties:
         transaction-manager-unique-name: ibmmq
+      connectionfactory:
+        max-pool-size: 2        
   sql:
     init:
       continue-on-error: true
