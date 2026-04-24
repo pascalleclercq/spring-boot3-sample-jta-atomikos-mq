@@ -6,14 +6,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.10</version>
+		<version>3.5.10</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>spring-boot3-sample-jta-atomikos-mq</artifactId>
 	<name>Spring Boot Atomikos JTA Sample</name>
 	<description>Spring Boot Atomikos JTA Sample</description>
 	<properties>
-		<atomikos.version>6.0.0</atomikos.version>
+		<atomikos.version>6.0.1</atomikos.version>
+		<testcontainers.version>1.21.4</testcontainers.version>
 	</properties>
 	<dependencies>
 		<!-- Compile -->
@@ -27,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-spring-boot3-starter</artifactId>
+			<artifactId>transactions-spring-boot3.4-starter</artifactId>
 			<version>${atomikos.version}</version>
 		</dependency>
 		<dependency>
@@ -35,11 +36,6 @@
      		<artifactId>mq-jms-spring-boot-starter</artifactId>
      		<version>3.3.5</version>
  		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -76,6 +72,21 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>testcontainers</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

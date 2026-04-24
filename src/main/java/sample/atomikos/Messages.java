@@ -19,12 +19,12 @@ package sample.atomikos;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Messages {
 
-	@JmsListener(destination = "DEV.QUEUE.1")
-	public void onMessage(String content) {
-		System.out.println("----> " + content);
-	}
+//	@JmsListener(destination = "DEV.QUEUE.1")
+//	public void onMessage(String content) {
+//		System.out.println("----> " + content);
+//	}
 
 }

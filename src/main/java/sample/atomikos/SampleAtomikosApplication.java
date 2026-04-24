@@ -43,5 +43,7 @@ public class SampleAtomikosApplication {
 		((Closeable) context).close();
 	}
 
+	
+	
 
 }
